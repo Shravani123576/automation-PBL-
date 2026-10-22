@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Application — Income Certificate Support Scheme</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Persistent Non-Negotiable Demo Banner -->
+    <div id="demo-banner" data-testid="demo-banner" class="demo-banner">
+        DEMO FORM — NOT A REAL GOVERNMENT PORTAL
+    </div>
+
+    <header class="portal-header">
+        <h1>Citizen Services Portal (Prototype)</h1>
+        <p>Demo Application — Income Certificate Support Scheme (Sample)</p>
+    </header>
+
+    <main class="main-container">
+        <!-- Error summary alert -->
+        <div id="error-summary-box" data-testid="error-summary" class="alert alert-error" style="display: none;">
+            <strong>Please resolve the following errors:</strong>
+            <ul id="error-list" data-testid="error-list" style="margin-left: 20px; margin-top: 6px;"></ul>
+        </div>
+
+        <!-- FORM ENTRY VIEW -->
+        <section id="form-entry-view" data-testid="form-entry-view" class="card">
+            <form id="scheme-application-form" novalidate>
+                
+                <!-- 1. APPLICANT DETAILS -->
+                <div class="form-section">
+                    <h2 class="section-title">1. Applicant Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="applicant-full-name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="applicant-full-name" data-testid="applicant-full-name" placeholder="Enter citizen full name">
+                        <span id="err-applicant-full-name" data-testid="err-applicant-full-name" class="field-error-msg"></span>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="applicant-dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="applicant-dob" data-testid="applicant-dob">
+                            <span id="err-applicant-dob" data-testid="err-applicant-dob" class="field-error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="applicant-gender">Gender <span class="required">*</span></label>
+                            <select id="applicant-gender" data-testid="applicant-gender">
+                                <option value="">-- Select Gender --</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                            <span id="err-applicant-gender" data-testid="err-applicant-gender" class="field-error-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="applicant-mobile">Mobile Number (10 digits) <span class="required">*</span></label>
+                            <input type="text" id="applicant-mobile" data-testid="applicant-mobile" maxlength="10" placeholder="e.g. 9876543210">
+                            <span id="err-applicant-mobile" data-testid="err-applicant-mobile" class="field-error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="applicant-email">Email Address (Optional)</label>
+                            <input type="email" id="applicant-email" data-testid="applicant-email" placeholder="e.g. citizen@example.com">
+                            <span id="err-applicant-email" data-testid="err-applicant-email" class="field-error-msg"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ADDRESS DETAILS -->
+                <div class="form-section">
+                    <h2 class="section-title">2. Residential Address</h2>
+                    
+                    <div class="form-group">
+                        <label for="address-house">House / Street <span class="required">*</span></label>
+                        <input type="text" id="address-house" data-testid="address-house" placeholder="Flat / House / Landmark">
+                        <span id="err-address-house" data-testid="err-address-house" class="field-error-msg"></span>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="address-village-city">Village or City <span class="required">*</span></label>
+                            <input type="text" id="address-village-city" data-testid="address-village-city" placeholder="Village / City">
+                            <span id="err-address-village-city" data-testid="err-address-village-city" class="field-error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-district">District <span class="required">*</span></label>
+                            <input type="text" id="address-district" data-testid="address-district" placeholder="District name">
+                            <span id="err-address-district" data-testid="err-address-district" class="field-error-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="address-state">State / UT <span class="required">*</span></label>
+                            <select id="address-state" data-testid="address-state">
+                                <option value="">-- Select State --</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                            <span id="err-address-state" data-testid="err-address-state" class="field-error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-pin">PIN Code (6 digits) <span class="required">*</span></label>
+                            <input type="text" id="address-pin" data-testid="address-pin" maxlength="6" placeholder="e.g. 440001">
+                            <span id="err-address-pin" data-testid="err-address-pin" class="field-error-msg"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SCHEME DETAILS -->
+                <div class="form-section">
+                    <h2 class="section-title">3. Scheme Details</h2>
+                    
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="scheme-income">Annual Family Income (INR) <span class="required">*</span></label>
+                            <input type="number" id="scheme-income" data-testid="scheme-income" min="0" placeholder="e.g. 150000">
+                            <span id="err-scheme-income" data-testid="err-scheme-income" class="field-error-msg"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="scheme-occupation">Occupation <span class="required">*</span></label>
+                            <select id="scheme-occupation" data-testid="scheme-occupation">
+                                <option value="">-- Select Occupation --</option>
+                                <option value="Salaried">Salaried</option>
+                                <option value="Self-Employed">Self-Employed</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Student">Student</option>
+                                <option value="Homemaker">Homemaker</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span id="err-scheme-occupation" data-testid="err-scheme-occupation" class="field-error-msg"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Social Category <span class="required">*</span></label>
+                        <div class="radio-group" id="scheme-category-group" data-testid="scheme-category-group">
+                            <label class="radio-label">
+                                <input type="radio" name="category" value="General" id="cat-general" data-testid="category-general"> General
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="category" value="OBC" id="cat-obc" data-testid="category-obc"> OBC
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="category" value="SC" id="cat-sc" data-testid="category-sc"> SC
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="category" value="ST" id="cat-st" data-testid="category-st"> ST
+                            </label>
+                        </div>
+                        <span id="err-scheme-category" data-testid="err-scheme-category" class="field-error-msg"></span>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="scheme-consent" data-testid="scheme-consent">
+                            <span>I confirm that the information provided above is correct and verified. <span class="required">*</span></span>
+                        </label>
+                        <span id="err-scheme-consent" data-testid="err-scheme-consent" class="field-error-msg"></span>
+                    </div>
+                </div>
+
+                <!-- 4. DOCUMENT SECTION -->
+                <div class="form-section">
+                    <h2 class="section-title">4. Document Upload</h2>
+                    
+                    <div class="form-group file-upload-box">
+                        <label for="document-income-certificate">
+                            Income Certificate (PDF, JPG, or PNG; maximum 2 MB) <span class="required">*</span>
+                        </label>
+                        <input type="file" id="document-income-certificate" data-testid="document-upload" accept=".pdf,.jpg,.jpeg,.png">
+                        <div id="file-name-display" data-testid="file-name-display" class="file-display-name"></div>
+                        <span id="err-document-upload" data-testid="err-document-upload" class="field-error-msg"></span>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="button-row">
+                    <button type="button" id="btn-review-application" data-testid="btn-review-application" class="btn btn-primary">
+                        Review Application
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- REVIEW SUMMARY VIEW (PAUSE STEP) -->
+        <section id="review-summary-view" data-testid="review-summary-view" class="card" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2 style="color: var(--color-primary-navy);">Application Review & Verification</h2>
+                <span class="status-badge badge-pending" id="review-badge" data-testid="review-badge">PENDING REVIEW</span>
+            </div>
+
+            <p style="margin-bottom: 20px; color: var(--color-text-muted);">
+                Please carefully verify the details entered below before giving your final confirmation.
+            </p>
+
+            <table class="summary-table">
+                <tbody>
+                    <tr><th>Full Name</th><td id="rev-applicant-full-name" data-testid="rev-applicant-full-name"></td></tr>
+                    <tr><th>Date of Birth</th><td id="rev-applicant-dob" data-testid="rev-applicant-dob"></td></tr>
+                    <tr><th>Gender</th><td id="rev-applicant-gender" data-testid="rev-applicant-gender"></td></tr>
+                    <tr><th>Mobile Number</th><td id="rev-applicant-mobile" data-testid="rev-applicant-mobile"></td></tr>
+                    <tr><th>Email Address</th><td id="rev-applicant-email" data-testid="rev-applicant-email"></td></tr>
+                    <tr><th>Residential Address</th><td id="rev-address-full" data-testid="rev-address-full"></td></tr>
+                    <tr><th>State & PIN Code</th><td id="rev-address-state-pin" data-testid="rev-address-state-pin"></td></tr>
+                    <tr><th>Annual Family Income</th><td id="rev-scheme-income" data-testid="rev-scheme-income"></td></tr>
+                    <tr><th>Occupation</th><td id="rev-scheme-occupation" data-testid="rev-scheme-occupation"></td></tr>
+                    <tr><th>Category</th><td id="rev-scheme-category" data-testid="rev-scheme-category"></td></tr>
+                    <tr><th>Declaration Consent</th><td id="rev-scheme-consent" data-testid="rev-scheme-consent"></td></tr>
+                    <tr><th>Uploaded Document</th><td id="rev-document-name" data-testid="rev-document-name"></td></tr>
+                </tbody>
+            </table>
+
+            <div class="button-row">
+                <button type="button" id="btn-cancel-application" data-testid="btn-cancel-application" class="btn btn-secondary" style="margin-right: auto;">
+                    Cancel Application
+                </button>
+                <button type="button" id="btn-edit-application" data-testid="btn-edit-application" class="btn btn-secondary">
+                    Edit Application
+                </button>
+                <button type="button" id="btn-confirm-application" data-testid="btn-confirm-application" class="btn btn-success">
+                    Confirm and Continue
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "applicant": {
+    "full_name": "Test Citizen One",
+    "date_of_birth": "1992-05-15",
+    "gender": "Female",
+    "mobile_number": "9000000001",
+    "email": "test.citizen1@example.com"
+  },
+  "address": {
+    "house": "Flat 402, Shanti Nilayam",
+    "village_city": "Nagpur",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "pin_code": "440001"
+  },
+  "scheme": {
+    "annual_income": 120000,
+    "occupation": "Self-Employed",
+    "category": "OBC"
+  }
+}

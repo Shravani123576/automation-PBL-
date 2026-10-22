@@ -1,0 +1,21 @@
+{
+  "applicant": {
+    "full_name": "",
+    "date_of_birth": "1992-05-15",
+    "gender": "Female",
+    "mobile_number": "9000000001",
+    "email": "test.citizen1@example.com"
+  },
+  "address": {
+    "house": "Flat 402, Shanti Nilayam",
+    "village_city": "Nagpur",
+    "district": "Nagpur",
+    "state": "Maharashtra",
+    "pin_code": "4400"
+  },
+  "scheme": {
+    "annual_income": -500,
+    "occupation": "Self-Employed",
+    "category": "OBC"
+  }
+}

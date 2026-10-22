@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Receipt — Simulated Application Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Persistent Non-Negotiable Demo Banner -->
+    <div id="demo-banner" data-testid="demo-banner" class="demo-banner">
+        DEMO FORM — NOT A REAL GOVERNMENT PORTAL
+    </div>
+
+    <header class="portal-header">
+        <h1>Citizen Services Portal (Prototype)</h1>
+        <p>Demo Application — Income Certificate Support Scheme (Sample)</p>
+    </header>
+
+    <main class="main-container">
+        <section class="card" id="receipt-card" data-testid="receipt-card">
+            
+            <div class="receipt-header">
+                <span class="status-badge badge-simulated" id="receipt-badge" data-testid="receipt-badge" style="margin-bottom: 12px;">
+                    SIMULATED COMPLETION
+                </span>
+                
+                <h2 class="receipt-title" id="receipt-label" data-testid="receipt-label">
+                    DEMO RECEIPT — SIMULATED, NOT SUBMITTED TO ANY GOVERNMENT SYSTEM
+                </h2>
+                
+                <p style="color: var(--color-text-muted); font-size: 15px;">
+                    This is an automated simulation prototype receipt. No real government database was contacted.
+                </p>
+            </div>
+
+            <div class="receipt-ref-box">
+                <div class="receipt-ref-label">DEMO APPLICATION REFERENCE NUMBER</div>
+                <div class="receipt-ref-number" id="demo-reference" data-testid="demo-reference">
+                    <!-- Populated dynamically -->
+                    GENERATING...
+                </div>
+            </div>
+
+            <h3 style="color: var(--color-primary-navy); margin-top: 24px; margin-bottom: 12px; font-size: 18px;">
+                Summary of Submitted Details (Simulated)
+            </h3>
+
+            <table class="summary-table">
+                <tbody>
+                    <tr><th>Applicant Name</th><td id="rcpt-applicant-full-name" data-testid="rcpt-applicant-full-name">-</td></tr>
+                    <tr><th>Date of Birth</th><td id="rcpt-applicant-dob" data-testid="rcpt-applicant-dob">-</td></tr>
+                    <tr><th>Mobile Number</th><td id="rcpt-applicant-mobile" data-testid="rcpt-applicant-mobile">-</td></tr>
+                    <tr><th>Address</th><td id="rcpt-address-full" data-testid="rcpt-address-full">-</td></tr>
+                    <tr><th>State & PIN</th><td id="rcpt-address-state-pin" data-testid="rcpt-address-state-pin">-</td></tr>
+                    <tr><th>Annual Income</th><td id="rcpt-scheme-income" data-testid="rcpt-scheme-income">-</td></tr>
+                    <tr><th>Category</th><td id="rcpt-scheme-category" data-testid="rcpt-scheme-category">-</td></tr>
+                    <tr><th>Verified Document</th><td id="rcpt-document-name" data-testid="rcpt-document-name">-</td></tr>
+                    <tr><th>Submission Timestamp</th><td id="rcpt-timestamp" data-testid="rcpt-timestamp">-</td></tr>
+                </tbody>
+            </table>
+
+            <div class="watermark-notice">
+                NOTICE: Prototype created for SAARTHi Citizen Assistant evaluation. Real government portals require formal Aadhaar e-KYC or verified citizen credentials.
+            </div>
+
+            <div class="button-row" style="justify-content: center; margin-top: 30px;">
+                <a href="index.html" class="btn btn-secondary" id="btn-back-to-form" data-testid="btn-back-to-form">
+                    Back to Form
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Load data from sessionStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            const dataStr = sessionStorage.getItem("saarthi_demo_submission");
+            if (!dataStr) {
+                document.getElementById("demo-reference").textContent = "DEMO-NO-DATA";
+                return;
+            }
+
+            try {
+                const data = JSON.parse(dataStr);
+                
+                // Demo Reference Number
+                document.getElementById("demo-reference").textContent = data.reference || "DEMO-XYZ12345";
+                
+                // Populate summary table
+                document.getElementById("rcpt-applicant-full-name").textContent = data.applicant_name || "-";
+                document.getElementById("rcpt-applicant-dob").textContent = data.dob || "-";
+                document.getElementById("rcpt-applicant-mobile").textContent = data.mobile || "-";
+                document.getElementById("rcpt-address-full").textContent = data.address || "-";
+                document.getElementById("rcpt-address-state-pin").textContent = `${data.state || ""} - ${data.pin || ""}`;
+                document.getElementById("rcpt-scheme-income").textContent = data.income ? `₹ ${Number(data.income).toLocaleString('en-IN')}` : "-";
+                document.getElementById("rcpt-scheme-category").textContent = data.category || "-";
+                document.getElementById("rcpt-document-name").textContent = data.document || "-";
+                document.getElementById("rcpt-timestamp").textContent = data.timestamp || new Date().toLocaleString();
+            } catch (err) {
+                console.error("Error parsing receipt data", err);
+            }
+        });
+    </script>
+</body>
+</html>

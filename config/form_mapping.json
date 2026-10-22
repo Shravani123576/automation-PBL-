@@ -1,0 +1,116 @@
+{
+  "scheme_id": "demo_income_certificate_scheme",
+  "form_relative_url": "index.html",
+  "fields": {
+    "applicant.full_name": {
+      "selector": "[data-testid='applicant-full-name']",
+      "type": "text",
+      "required": true,
+      "review_selector": "[data-testid='rev-applicant-full-name']"
+    },
+    "applicant.date_of_birth": {
+      "selector": "[data-testid='applicant-dob']",
+      "type": "date",
+      "required": true,
+      "review_selector": "[data-testid='rev-applicant-dob']"
+    },
+    "applicant.gender": {
+      "selector": "[data-testid='applicant-gender']",
+      "type": "select",
+      "required": true,
+      "review_selector": "[data-testid='rev-applicant-gender']"
+    },
+    "applicant.mobile_number": {
+      "selector": "[data-testid='applicant-mobile']",
+      "type": "text",
+      "required": true,
+      "review_selector": "[data-testid='rev-applicant-mobile']"
+    },
+    "applicant.email": {
+      "selector": "[data-testid='applicant-email']",
+      "type": "text",
+      "required": false,
+      "review_selector": "[data-testid='rev-applicant-email']"
+    },
+    "address.house": {
+      "selector": "[data-testid='address-house']",
+      "type": "text",
+      "required": true
+    },
+    "address.village_city": {
+      "selector": "[data-testid='address-village-city']",
+      "type": "text",
+      "required": true
+    },
+    "address.district": {
+      "selector": "[data-testid='address-district']",
+      "type": "text",
+      "required": true
+    },
+    "address.state": {
+      "selector": "[data-testid='address-state']",
+      "type": "select",
+      "required": true
+    },
+    "address.pin_code": {
+      "selector": "[data-testid='address-pin']",
+      "type": "text",
+      "required": true
+    },
+    "scheme.annual_income": {
+      "selector": "[data-testid='scheme-income']",
+      "type": "number",
+      "required": true,
+      "review_selector": "[data-testid='rev-scheme-income']"
+    },
+    "scheme.occupation": {
+      "selector": "[data-testid='scheme-occupation']",
+      "type": "select",
+      "required": true,
+      "review_selector": "[data-testid='rev-scheme-occupation']"
+    },
+    "scheme.category": {
+      "selector": "[data-testid='scheme-category-group']",
+      "type": "radio",
+      "options_mapping": {
+        "General": "[data-testid='category-general']",
+        "OBC": "[data-testid='category-obc']",
+        "SC": "[data-testid='category-sc']",
+        "ST": "[data-testid='category-st']"
+      },
+      "required": true,
+      "review_selector": "[data-testid='rev-scheme-category']"
+    },
+    "scheme.consent": {
+      "selector": "[data-testid='scheme-consent']",
+      "type": "checkbox",
+      "required": true,
+      "review_selector": "[data-testid='rev-scheme-consent']"
+    },
+    "document.income_certificate": {
+      "selector": "[data-testid='document-upload']",
+      "type": "file",
+      "required": true,
+      "file_display_selector": "[data-testid='file-name-display']",
+      "review_selector": "[data-testid='rev-document-name']"
+    }
+  },
+  "buttons": {
+    "review": "[data-testid='btn-review-application']",
+    "edit": "[data-testid='btn-edit-application']",
+    "cancel": "[data-testid='btn-cancel-application']",
+    "confirm": "[data-testid='btn-confirm-application']"
+  },
+  "views": {
+    "entry": "[data-testid='form-entry-view']",
+    "review": "[data-testid='review-summary-view']",
+    "review_badge": "[data-testid='review-badge']",
+    "error_summary": "[data-testid='error-summary']"
+  },
+  "receipt": {
+    "banner": "[data-testid='demo-banner']",
+    "label": "[data-testid='receipt-label']",
+    "reference": "[data-testid='demo-reference']",
+    "badge": "[data-testid='receipt-badge']"
+  }
+}
